@@ -1,0 +1,46 @@
+# Install system apt packages
+- hosts: azure-web-ser
+  become: yes
+  become_method: sudo
+  tasks:
+    # Update
+    - name: update cache
+      apt: name=software-properties-common state=present update_cache=yes cache_valid_time=43200
+    # Install 
+    - name: install packages
+      apt: state=latest
+        name: ['python3.8', 'postgresql', 'postgresql-client', 'libpq-dev', 'libpython3-stdlib', 'python3-pip'] 
+
+        # Install Psycopg2 to make PSQL work
+    - name: Install Psycopg2 
+      become: yes
+      become_method: sudo
+      pip:
+        name: psycopg2
+        executable: pip3
+
+        # Database PSQL
+    - name: Create user psql
+      become: yes
+      become_user: postgres
+      postgresql_user:
+        name: "{{PSQL_USER}}"
+        password: "{{PSQL_PASS}}"
+        role_attr_flags: "CREATEDB,NOSUPERUSER"
+
+# Start the server
+    - name: Run the database
+      become: yes
+      become_user: postgres
+      shell: "/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start"
+      
+# Install the app, note: don't do these tasks with become sudo
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: clone repo
+      git:
+        repo: "https://github.com/{{ github_user }}/{{ app_name }}.git"
+        dest: /home/{{ ansible_ssh_user }}/{{ app_name }}
+        update: yes # Does a git pull if the repo already exists
+        force: yes
