@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Jojo API V.05</title>
   </head>
   <body>
-    <label for="myMail"> Subscribe to our newsletter</label>
-    <input type="text" name="myMail" />
-    {{jojo}}
+    <div class="container">
+      <form action="" method="POST">
+        <label for="myMail">
+          <strong> Subscribe to our newsletter</strong>
+        </label>
+        <input type="text" name="myMail" />
+        <button>Subscribe</button>
+      </form>
+      {{jojo}}
+    </div>
   </body>
 </html>
