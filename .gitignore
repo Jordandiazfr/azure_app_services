@@ -1,7 +1,12 @@
 # Jojo projet files
-host
+ansible/host
 az
 client/__pycache__
+server/__pycache__
+.pytest_cache/
+.vscode/
+my_strings
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

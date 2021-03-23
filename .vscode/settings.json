@@ -1,3 +1,8 @@
 {
-    "python.pythonPath": "C:\\Users\\jorda\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+    "python.pythonPath": "C:\\Users\\jorda\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "cSpell.words": [
+        "PSQL",
+        "dotenv"
+    ],
+    "python.linting.pylintPath": "venv/bin/pylint"
 }
