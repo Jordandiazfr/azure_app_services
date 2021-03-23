@@ -1,4 +1,3 @@
-from client.index import app, index
-
+from client.index import app
 if __name__ == "__main__":
     app.run()

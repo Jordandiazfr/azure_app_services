@@ -2,34 +2,32 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy Python app to Azure Web App - Jojapp
-
 on:
-push:
-branches:
-- main
-workflow_dispatch:
+  push:
+  branches:
+  - main
+  - server
+  workflow_dispatch:
 
 jobs:
-build-and-deploy:
-runs-on: ubuntu-latest
+  build-and-deploy:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@master
+    - name: Set up Python version
+      uses: actions/setup-python@v1
+      with:
+      python-version: '3.8'
 
-steps:
-- uses: actions/checkout@master
+    - name: Build using AppService-Build
+      uses: azure/appservice-build@v2
+      with:
+      platform: python
+      platform-version: '3.8'
 
-- name: Set up Python version
-uses: actions/setup-python@v1
-with:
-python-version: '3.8'
-
-- name: Build using AppService-Build
-uses: azure/appservice-build@v2
-with:
-platform: python
-platform-version: '3.8'
-
-- name: 'Deploy to Azure Web App'
-uses: azure/webapps-deploy@v2
-with:
-app-name: 'Jojapp'
-slot-name: 'production'
-publish-profile: ${{ secrets.AzureAppService_PublishProfile_8fb896a1938b427d822d3f4e0db68b1a }}
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v2
+      with:
+      app-name: 'Jojapp'
+      slot-name: 'production'
+      publish-profile: ${{ secrets.AzureAppService_PublishProfile_8fb896a1938b427d822d3f4e0db68b1a }}
