@@ -14,9 +14,17 @@
           <strong> Subscribe to our newsletter</strong>
         </label>
         <input type="text" name="myMail" />
-        <button>Subscribe</button>
+        <button type="submit">Subscribe</button>
       </form>
-      {{jojo}}
+      <div class="charge">
+        <img src="../static/img/loading.gif" class="loading" />
+      </div>
     </div>
+    <script>
+      document.querySelector("button").addEventListener("click", show);
+      function show() {
+        document.querySelector(".charge").style.display = "block";
+      }
+    </script>
   </body>
 </html>

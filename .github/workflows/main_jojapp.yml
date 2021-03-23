@@ -28,3 +28,4 @@ jobs:
           app-name: 'Jojapp'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_8fb896a1938b427d822d3f4e0db68b1a }}
+ 

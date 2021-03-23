@@ -2,6 +2,7 @@ import os
 import psycopg2
 from psycopg2 import Error
 from dotenv import load_dotenv
+from prettytable import from_db_cursor
 
 load_dotenv(dotenv_path="./secrets/.env")
 
