@@ -20,7 +20,7 @@ class PostGreSQL:
             connection = psycopg2.connect(user=self.user, password=self.password,
                                           host=self.host, port="5432", database=self.db_name, sslmode='require')
             # Create a cursor to perform database operations
-            cursor = connection.cursor()
+            #cursor = connection.cursor()
 
             # Print PostgreSQL details
             print("Connected to the database")
