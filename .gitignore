@@ -1,5 +1,7 @@
 # Jojo projet files
 host
+az
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
