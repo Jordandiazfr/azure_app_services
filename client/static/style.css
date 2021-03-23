@@ -1,0 +1,29 @@
+body {
+  font-size: 1.5rem;
+  background-color: brown;
+}
+
+.container {
+  background-color: #e7e7e7;
+  margin-top: 10rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+input {
+  padding: 1rem;
+  margin: 1rem 0rem;
+}
+
+button {
+  padding: 1rem;
+  margin-bottom: 10rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
