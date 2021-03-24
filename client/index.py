@@ -40,11 +40,12 @@ def jojo_function():
 @app.route("/mailhandler", methods=['POST', 'GET'])
 @log
 def mail_handler():
-    scores = db.select("score")
+    
     user_mail = request.form.get("myMail")
     valid = mail.validate(user_mail)
-    print("Email is valid " + valid)
+    print(f"Email is valid {valid}")
     if valid:
+        scores = db.select("score")
         html_mail = mail.format_html(scores)
         mail.send(user_mail, content_plain=scores, content_html=html_mail)
         logging.info(f"Email sent successfully to {user_mail}")
