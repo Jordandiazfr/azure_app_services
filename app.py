@@ -1,7 +1,8 @@
 from client.index import app
 import logging
 
-logging.basicConfig(filename="Logservice.log",
+# Change in the future for a log.cnf file
+logging.basicConfig(filename="client/logserver.log",
                     filemode="a",
                     format='%(asctime)s: %(levelname)s: %(message)s',
                     level=logging.DEBUG,

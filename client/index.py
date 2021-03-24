@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, Markup
 from client.server.dbclass import PostGreSQL
 from client.server.mail import MailSender
-import logging
 from client.logger import log
+from time import sleep
+import logging
+import json
 
 # Instances
 app = Flask(__name__)
@@ -16,6 +18,17 @@ mail = MailSender()
 @log
 def index():
     return render_template("index.html", jojo="You found the secret")
+
+
+@app.route('/logs')
+def logs():
+    def generate():
+        with open('client/logserver.log') as f:
+            while True:
+                yield f.read()
+                sleep(2)
+
+    return app.response_class(generate(), mimetype='text/plain')
 
 
 @app.route("/jojo")
