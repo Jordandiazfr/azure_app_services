@@ -43,10 +43,10 @@ def mail_handler():
     scores = db.select("score")
     user_mail = request.form.get("myMail")
     valid = mail.validate(user_mail)
-    html_mail = mail.format_html(scores)
-    print(valid)
-    mail.send(user_mail, content_plain=scores, content_html=html_mail)
+    print("Email is valid " + valid)
     if valid:
+        html_mail = mail.format_html(scores)
+        mail.send(user_mail, content_plain=scores, content_html=html_mail)
         logging.info(f"Email sent successfully to {user_mail}")
         return render_template("nice.html", user=user_mail, data=Markup(html_mail))
     else:
