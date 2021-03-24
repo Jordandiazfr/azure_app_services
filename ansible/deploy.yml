@@ -12,7 +12,7 @@
         name: ['python3.8', 'postgresql', 'postgresql-client', 'libpq-dev', 'libpython3-stdlib', 'python3-pip'] 
         state: latest
 
-        # Install Psycopg2 to make PSQL work
+      # Install Psycopg2 to make PSQL work
     - name: Install Psycopg2 
       become: yes
       become_method: sudo
