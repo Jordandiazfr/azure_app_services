@@ -16,7 +16,7 @@ def populate_db(table: str):
     db.insert(table, data)
 
 
-# Loop and poupalte the db with 10 entries
+# Loop and populate the db with 10 entries
 # for i in range(10):
 #   populate_db("score")
 

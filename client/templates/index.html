@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/style.css" />
-    <title>Jojo API V.05</title>
-  </head>
-  <body>
-    <div class="container">
+{% extends "template.html" %}
+{% block title %} Subscribe to the newsletter {% endblock %}
+{% block  content %}
       <form action="/mailhandler" method="POST">
         <label for="myMail">
           <strong> Subscribe to our newsletter</strong>
@@ -16,7 +8,7 @@
         <input type="text" name="myMail" />
         <button type="submit">Subscribe</button>
       </form>
-      <div class="charge">
+      <div class="charge"><p>Loading your request, please wait ... </p> 
         <img src="../static/img/loading.gif" class="loading" />
       </div>
     </div>
@@ -26,5 +18,5 @@
         document.querySelector(".charge").style.display = "block";
       }
     </script>
-  </body>
-</html>
+    {% endblock %}
+
